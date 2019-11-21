@@ -153,6 +153,6 @@ borrarelemento (struct Lista *lista)
       aux->siguiente = (aux->siguiente)->siguiente;
     }
   else
-    printf ("\nLista llena");
+    printf ("\nLista Vacia");
   return lista;
 }

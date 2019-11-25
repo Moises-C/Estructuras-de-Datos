@@ -10,8 +10,8 @@ struct cola
   struct cola *siguiente;
 };
 
-void insertar (struct cola **, struct cola **);
+void insertar (struct cola **, struct cola **, int dato);
 void mostrar (struct cola **);
-void eliminar (struct cola **);
+void eliminar (struct cola **, struct cola **);
 
 #endif

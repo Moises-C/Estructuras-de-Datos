@@ -4,7 +4,9 @@ main.o: main.c
 	gcc -c main.c
 cola.o: cola.c
 	gcc -c cola.c
-run: a.out
+indent: 
+	indent *.c
+run: a.out 
 	./a.out
 clean:
-	rm a.out *.o
+	rm a.out *.o  *.c~

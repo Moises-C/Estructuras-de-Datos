@@ -1,51 +1,36 @@
 #include "cola.h"
 
 void
-insertar (struct cola **primero, struct cola **ultimo)
+insertar (struct cola **primero, struct cola **ultimo, int dato)
 {
   struct cola *colanueva = (struct cola *) malloc (sizeof (struct cola));
-  printf ("\nIngrese un dato: ");
-  scanf ("%d", &colanueva->dato);
+  colanueva->dato = dato;
+  colanueva->siguiente = NULL;
   if (*primero == NULL)
-    {
-      *primero = colanueva;
-      (*primero)->siguiente = NULL;
-      *ultimo = colanueva;
-    }
+    *primero = colanueva;
   else
-    {
-      (*ultimo)->siguiente = colanueva;
-      colanueva->siguiente = NULL;
-      *ultimo = colanueva;
-    }
+    (*ultimo)->siguiente = colanueva;
+  *ultimo = colanueva;
 }
 
 void
-eliminar (struct cola **primero)
+eliminar (struct cola **primero, struct cola **ultimo)
 {
+  int dato = (*primero)->dato;
   struct cola *aux = *primero;
-  int dato;
-  printf ("¿\nQue elemento deseas borrar?");
-  scanf ("%d", &dato);
-  if (*primero != NULL)
+  if (*primero != NULL && *ultimo != NULL)
     {
-      if (aux->dato == dato)
+      if (*primero == *ultimo)
 	{
-	  *primero = (*primero)->siguiente;
-	  free (aux);
+	  *primero = NULL;
+	  *ultimo = NULL;
 	}
       else
-	{
-	  while ((aux->siguiente)->dato != dato)
-	    {
-	      aux = aux->siguiente;
-	    }
-	  free (aux->siguiente);
-	  aux->siguiente = (aux->siguiente)->siguiente;
-	}
+	*primero = (*primero)->siguiente;
     }
   else
-    printf ("\nLista vacia");
+    printf ("\nLa cola esta vacia");
+  free (aux);
 }
 
 void
@@ -63,5 +48,6 @@ mostrar (struct cola **primero)
 	  printf ("%d ->", aux->dato);
 	  aux = aux->siguiente;
 	}
+      printf ("NULL\n");
     }
 }

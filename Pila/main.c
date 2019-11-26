@@ -3,13 +3,12 @@
 int
 main ()
 {
-  struct pila *ultimo = NULL;
-  agregar (&ultimo);
-  agregar (&ultimo);
-  agregar (&ultimo);
-  mostrar (&ultimo);
-  quitar (&ultimo);
-  mostrar (&ultimo);
-  free (ultimo);
+  struct pila *Pila = NULL;
+  agregar (&Pila, 1);
+  agregar (&Pila, 2);
+  agregar (&Pila, 3);
+  mostrar (&Pila);
+  quitar (&Pila);
+  mostrar (&Pila);
   return 0;
 }

@@ -10,7 +10,7 @@ struct pila
   struct pila *siguiente;
 };
 
-void agregar (struct pila **);
+void agregar (struct pila **, int);
 void mostrar (struct pila **);
 void quitar (struct pila **);
 
